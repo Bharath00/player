@@ -2,7 +2,7 @@
 
 	$servername  =  "127.0.0.1" ;
 	$username  =    "root" ;
-	$password  =    "root" ; 
+	$password  =    "" ; 
 	$dbname = 		"mplayer";
 
 	$conn = new mysqli($servername,$username,$password,$dbname) ;

@@ -3,7 +3,7 @@
 if(isset($_POST['submitfile']) )
 {
 
-	$target_dir = "uploads/";
+	$target_dir = "upload/";
 	$target_file = $target_dir.basename($_FILES["audioFile"]["name"]);
 	//move_uploaded_file($_FILES['audioFile']["tmp_name"] , $target_file);
 
