@@ -45,7 +45,9 @@
 					<img src="assets/logo.svg" width="32" height="32" class="d-inline-block align-centre" alt="media img">
 					Music Player
 				</a>
-				<a  href="logout.php" class="btn btn-primary">Logout</a>
+				<form action="logout.php" method="POST"> 
+					<button name="logout" class="float-right btn btn-default btn-rounded mb-4">Logout</button>
+				</form>
 			</nav>	
 		<br>
 		<!-- end of navbar -->

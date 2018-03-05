@@ -33,11 +33,14 @@
 				if(!isset($_SESSION['user_id'])){
 
 					echo '<div>
-						<a href="login.php" class="float-right  btn btn-primary btn-rounded mb-4" >Login</a>
+						<a href="loginform.php" class="float-right  btn btn-primary btn-rounded mb-4" >Login</a>
 						<a href="signupform.php" class="float-right btn btn-default btn-rounded mb-4">Signup</a>	
 					</div>' ;
 				}else{
-					echo '<a href="logout.php" class="float-right btn btn-default btn-rounded mb-4">Logout</a>' ;
+					echo '
+					<form action="logout.php" method="POST"> 
+					<button name="logout" class="float-right btn btn-default btn-rounded mb-4">Logout</button>
+					</form>' ;
 				}
 			?>			
 		</nav>
