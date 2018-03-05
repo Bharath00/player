@@ -101,19 +101,19 @@
 						<br/>
 						<div class="row">
 						<div class="col-md-7">
-						<input type="file" id="form3" class="form-control" name="audioFile"/><br/>
+						<input type="file" id="form3" class="form-control" name="upload[]" multiple="multiple"/><br/>
 						</div>
 						</div>';
 					}
 					echo '<input type="submit" name="submitfile" class="btn btn-primary">
 					</form>';
 				}
-				?>			
+			?>			
 
 			<!-- php code here -->
 		</div>
 		<!-- End of upload content-->
 
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.0/js/mdb.min.js"></script>
-	</body>
-	</html>
+</body>
+</html>
