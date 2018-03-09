@@ -9,10 +9,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
     
-    
-    
-    
-    
 </head>
 
 <body> 
@@ -29,20 +25,19 @@
 <!-- Main upload form -->
 
 
-
 <div class="container">
     <div class="card">
         <div class="card-body">
-            <form method="POST" action="uploader.php" enctype="multipart/form-data">
+            <form method="POST" action="uploadLogic.php" enctype="multipart/form-data">
                 <p class="h4 text-center py-4">Upload your content here ..</p>
                 <div class="md-form">
-                    <input type="text" id="materialFormCardNameEx" class="form-control">
+                    <input type="text" id="materialFormCardNameEx" class="form-control" name="alname">
                     <label for="materialFormCardNameEx" class="font-weight-light">Album name</label>
                 </div><br/>
 
             <!-- Material input email -->
                 <div class="md-form">
-                    <input type="text" id="materialFormCardEmailEx" class="form-control">
+                    <input type="text" id="materialFormCardEmailEx" class="form-control" name="artname">
                     <label for="materialFormCardEmailEx" class="font-weight-light">Artists name..</label>
                 </div><br/>
 
@@ -56,7 +51,7 @@
            
                 <div class="text-center py-4 mt-3">
                     <a id="add_more" class="btn btn-cyan" type="submit">Add next</a>
-                    <button  class="btn btn-primary" type="submit">Upload</button>     
+                    <button  class="btn btn-primary" type="submit" name="submit">Upload</button>     
                 </div>
             </form>
         </div>
