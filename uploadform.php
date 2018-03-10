@@ -1,3 +1,11 @@
+<?php
+    session_start() ;
+        if(!isset($_SESSION['user_id'])){
+            header('Location: index.php?filenotfound') ;
+            exit() ;
+        }
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,8 +31,6 @@
 
 
 <!-- Main upload form -->
-
-
 <div class="container">
     <div class="card">
         <div class="card-body">
@@ -68,6 +74,8 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>    
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.0/js/mdb.min.js"></script>
+
+
 </body>
 </html>
 

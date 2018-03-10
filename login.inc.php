@@ -26,9 +26,11 @@
 				$row  = mysqli_fetch_assoc($result) ;
 				// Hashing code will come here
 				if($password == $row['password']){
-					header("Location: upload.php?login=success") ;
 					$_SESSION['user_id'] = $row['id'] ;
+					header("Location: uploadform.php") ;
 					exit() ;
+					
+
 				}else{
 						header("Location: loginform.php?login=error") ;
 						exit() ;
@@ -36,6 +38,6 @@
 		}
 	}
 }else{
-		header("Location: loginform.php?login=errossr") ;
+		header("Location: loginform.php?login=error") ;
 		exit();
 }
