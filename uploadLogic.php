@@ -14,7 +14,7 @@ if(isset($_POST["submit"])){
 				exit();
 			}
 			else if(move_uploaded_file($files['tmp_name'], $target_dir)){
-				 echo "Sucess" ;
+				
 			}
 		}
 		else {
@@ -22,10 +22,11 @@ if(isset($_POST["submit"])){
 			exit();
 		}
 	}
-
 		// Fetch the album name and all the artists ..
 		$album_name = 	trim($_POST['alname']) ; 
 		$artists    =   trim($_POST['artname']) ;
+		$year  = 		date("y/m/d") ;
+
 
 		if(empty($album_name)||empty($artists)){
 			header("Location: uploadform.php?name=empty") ;
@@ -35,7 +36,7 @@ if(isset($_POST["submit"])){
 				header("Location: uploadform.php?invalidCharacters") ;
 				exit() ;
 			}else{
-				$sql = "INSERT INTO albums (artists,song_name) VALUES ('$artists','$album_name')" ;
+				$sql = "INSERT INTO albums (artists,song_name,year) VALUES ('$artists','$album_name','$year')" ;
 				$conn->query($sql) ;
 			}
 		}

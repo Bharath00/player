@@ -34,7 +34,8 @@ $sql = "CREATE TABLE albums(
 		al_id int(10) PRIMARY KEY AUTO_INCREMENT,
 		song_name VARCHAR(50) NOT NULL UNIQUE,
 		artists VARCHAR(50) NOT NULL UNIQUE,
-		year DATE NOT NULL
+		year DATE NOT NULL,
+		file_loc VARCHAR(200) NOT NULL 
 		)";
 
 $conn->query($sql);
