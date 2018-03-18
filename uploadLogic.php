@@ -38,6 +38,9 @@ if(isset($_POST['submit'])){
 						$name = basename($files['name']) ;
 						move_uploaded_file($files['tmp_name'], "$dir/$name");
 						//inserting into database code will come here ...
+						$stmt =$conn->prepare("INSERT INTO albums (user_id,song_name,artists,year,file_loc) VALUES (?,?,?,?,?)");
+						$stmt->bind_param("issss",$s_id,$album_name,$artists,$year,$dir);
+						$stmt->execute();
 
 				}else{
 					header("Location: uploadform.php?uploadFailed");

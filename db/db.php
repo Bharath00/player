@@ -22,7 +22,7 @@ $sql = "CREATE TABLE user_details(
 		
 		id  INT(10) PRIMARY KEY AUTO_INCREMENT,
 		uname VARCHAR(30) NOT NULL UNIQUE,
-		email VARCHAR(50) UNIQUE NOT NULL UNIQUE,
+		email VARCHAR(50) UNIQUE NOT NULL,
 		password VARCHAR(50) NOT NULL,
 		unique_code INT(4) NOT NULL 
  		)";
@@ -31,11 +31,13 @@ $conn->query($sql);
 
 $sql = "CREATE TABLE albums(
 		
-		al_id int(10) PRIMARY KEY AUTO_INCREMENT,
+		al_id INT(10) PRIMARY KEY AUTO_INCREMENT,
+		user_id INT(10) NOT NULL UNIQUE,
 		song_name VARCHAR(50) NOT NULL UNIQUE,
 		artists VARCHAR(50) NOT NULL UNIQUE,
 		year DATE NOT NULL,
-		file_loc VARCHAR(200) NOT NULL 
+		file_loc VARCHAR(200) NOT NULL,
+		FOREIGN KEY (user_id) REFERENCES user_details (id) 
 		)";
 
 $conn->query($sql);
