@@ -1,43 +1,54 @@
 <?php 
 
+session_start() ;
 include "db/db.inc.php" ;
 
-if(isset($_POST["submit"])){
-		// Fetch the files and store them in the folder..
-	foreach ($_FILES as $files) {
-			//Checking for the file type..
-		if($files['type']=="audio/mpeg"){
-			$dir = "uploaded/"  ;
-			$target_dir = $dir.basename($files['name']) ;
-			if(file_exists($target_dir)){
-				header("Location: uploadform.php?file_exists") ;
-				exit();
-			}
-			else if(move_uploaded_file($files['tmp_name'], $target_dir)){
-				
-			}
-		}
-		else {
-			header("Location: uploadform.php?errorType");
-			exit();
-		}
-	}
-		// Fetch the album name and all the artists ..
-		$album_name = 	trim($_POST['alname']) ; 
-		$artists    =   trim($_POST['artname']) ;
-		$year  = 		date("y/m/d") ;
+function randomDigits($length){
+	$numbers = range(0,100);
+	shuffle($numbers);
+	$digits = "";
+	for($i = 0;$i < $length;$i++)
+		$digits .= $numbers[$i];
+	return $digits;
+}
+$album = randomDigits(4);
 
+if(isset($_POST['submit'])){
 
-		if(empty($album_name)||empty($artists)){
-			header("Location: uploadform.php?name=empty") ;
+	$album_name =  trim($_POST['alname']) ; 
+	$artists =   trim($_POST['artname']) ;
+	$year  = 	date("y/m/d") ;
+	$s_id  = $_SESSION['user_id'] ;
+
+	if(empty($album_name)||empty($artists)){
+		header("Location: uploadform.php?emptyfields") ;
+		exit() ;
+	}else{
+		if(!preg_match("/[a-zA-Z]/",$album_name)||!preg_match("/[a-zA-Z]/",$artists)){
+			header("Location: uploaderform.php?invalidCharacters") ;
 			exit() ;
 		}else{
-			if(!preg_match("/[a-zA-Z]/", $album_name)|| !preg_match("/[a-zA-Z]/", $artists)){
-				header("Location: uploadform.php?invalidCharacters") ;
-				exit() ;
-			}else{
-				$sql = "INSERT INTO albums (artists,song_name,year) VALUES ('$artists','$album_name','$year')" ;
-				$conn->query($sql) ;
-			}
+				chdir("uploaded") ;
+				$create_album = $album ; 
+				mkdir($create_album) ;
+				chdir($create_album) ;
+				$dir = getcwd();
+				foreach ($_FILES as $files){
+					if($files['type']=="audio/mpeg" && $files['size']<104857600){
+						$name = basename($files['name']) ;
+						move_uploaded_file($files['tmp_name'], "$dir/$name");
+						//inserting into database code will come here ...
+
+				}else{
+					header("Location: uploadform.php?uploadFailed");
+					exit();
+				}	
+			 }
 		}
 	}
+}else{
+	header("Location: uploadform.php?error");
+	exit();
+}			 
+		
+
