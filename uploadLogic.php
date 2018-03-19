@@ -29,7 +29,8 @@ if(isset($_POST['submit'])){
 			exit() ;
 		}else{
 				chdir("uploaded") ;
-				$create_album = $album ; 
+				$create_album = $album ;
+				$album_id  = $album ; 
 				mkdir($create_album) ;
 				chdir($create_album) ;
 				$dir = getcwd();
@@ -38,8 +39,8 @@ if(isset($_POST['submit'])){
 						$name = basename($files['name']) ;
 						move_uploaded_file($files['tmp_name'], "$dir/$name");
 						//inserting into database code will come here ...
-						$stmt =$conn->prepare("INSERT INTO albums (user_id,song_name,artists,year,file_loc) VALUES (?,?,?,?,?)");
-						$stmt->bind_param("issss",$s_id,$album_name,$artists,$year,$dir);
+						$stmt =$conn->prepare("INSERT INTO albums (al_id,user_id,song_name,artists,year,file_loc) VALUES (?,?,?,?,?,?)");
+						$stmt->bind_param("iissss",$album_id,$s_id,$album_name,$artists,$year,$dir);
 						$stmt->execute();
 
 				}else{
