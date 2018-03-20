@@ -28,19 +28,16 @@ if(isset($_POST['submit'])){
 			header("Location: uploaderform.php?invalidCharacters") ;
 			exit() ;
 		}else{
-				chdir("uploaded") ;
-				$create_album = $album ;
 				$album_id  = $album ; 
-				mkdir($create_album) ;
-				chdir($create_album) ;
-				$dir = getcwd();
+				mkdir("uploaded/".$album_id);
+				$path = "uploaded/".$album.'/'  ;
 				foreach ($_FILES as $files){
 					if($files['type']=="audio/mpeg" && $files['size']<104857600){
 						$name = basename($files['name']) ;
-						move_uploaded_file($files['tmp_name'], "$dir/$name");
+						move_uploaded_file($files['tmp_name'],"$path/$name");
 						//inserting into database code will come here ...
 						$stmt =$conn->prepare("INSERT INTO albums (al_id,user_id,song_name,artists,year,file_loc) VALUES (?,?,?,?,?,?)");
-						$stmt->bind_param("iissss",$album_id,$s_id,$album_name,$artists,$year,$dir);
+						$stmt->bind_param("iissss",$album_id,$s_id,$album_name,$artists,$year,$path);
 						$stmt->execute();
 
 				}else{
