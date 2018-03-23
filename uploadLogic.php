@@ -36,8 +36,9 @@ if(isset($_POST['submit'])){
 						$name = basename($files['name']) ;
 						move_uploaded_file($files['tmp_name'],"$path/$name");
 						//inserting into database code will come here ...
+						$path1 = $album.'/';
 						$stmt =$conn->prepare("INSERT INTO albums (al_id,user_id,song_name,artists,year,file_loc) VALUES (?,?,?,?,?,?)");
-						$stmt->bind_param("iissss",$album_id,$s_id,$album_name,$artists,$year,$path);
+						$stmt->bind_param("iissss",$album_id,$s_id,$album_name,$artists,$year,$path1);
 						$stmt->execute();
 
 				}else{
