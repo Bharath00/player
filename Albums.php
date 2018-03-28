@@ -26,7 +26,8 @@ if(!isset($_SESSION['user_id'])){
 			<img src="assets/logo.svg" width="32" height="32" class="d-inline-block align-centre" alt="media img">
 			Music Player
 		</a>
-</nav>
+	</nav>
+
 
 <?php 
 		$user_id = $_SESSION['user_id'] ;
@@ -37,30 +38,34 @@ if(!isset($_SESSION['user_id'])){
 		echo "<div class='container'>
 			<h4>Number of albums</h4>
 			</div>";
+
+		echo "<div class='container'>
+				<table class='table table-bordered'>
+		
+				</table>";
+
 		if($row_cnt > 0){
 			while($row = $result->fetch_assoc()){
 				static $count = 1 ;
 			  	$path = $row['file_loc'];
-				echo"<div class='container'>
-						<table class='table'>
+				echo"<table class='table table-bordered'>
 						<thead class='blue-grey lighten-4'>
-							<tr>
-								<th>No.</th>
-								<th>Album</th>
-								<th>Artists</th>
-								<th>Release Date</th>
-							</tr>
-						</thead>
+						<tr>
+							<th>No.</th>
+							<th>Album</th>
+							<th>Artists</th>
+							<th>Release Date</th>
+						</tr>
+					</thead>
 						<tbody>
 							<tr>
-								<td>".$count."</td>
-								<td><a href='uploaded/$path'>".$row['song_name']."</a></td>
+								<td scope='row'>".$count."</td>
+								<td><a href='play.php?name=".$row['file_loc']."'>".$row['song_name']."</a></td>
 								<td>".$row['artists']."</td>
 								<td>".$row['year']."</td>
-							</tr>	
-						</tbody>
-					</table>
-					</div>" ;
+							</tr>
+						</tbody>	
+					</table>";
 				$count++ ; 	
 			}
 		}else{

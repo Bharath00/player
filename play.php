@@ -33,20 +33,19 @@ if(!isset($_SESSION['user_id'])){
 	echo "<table class='table'>
 			<thead class='blue-grey lighten-4'>
 				<th>No.</th>
-    		 	<th>Artists</th>
+    		 	
     		 	<th>Song</th>
 			</thead>
 	</table>";
 
-	
+
 	foreach(glob('uploaded/'.$abc.'*.mp3', GLOB_NOSORT) as $file)   
     {  
     	Static $count=1;
 		echo "
     		<table class='table'>
     		 	<tr>
-    		 		<td>".$count."</td>
-    		 		<td></td>
+    		 		<td>".$count."</td>	
     		 		<td><audio controls><source src='".$file."' type='audio/mpeg'></audio></td>
     		 	</tr>	 
     		</table>";
