@@ -10,13 +10,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Upload your files...</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="Bootstrap/css/bootstrap.min.css">  
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.0/css/mdb.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <link rel="stylesheet" href="css/teststyle.css">
     
 </head>
 
@@ -27,6 +27,14 @@
 				<img src="assets/logo.svg" width="32" height="32" class="d-inline-block align-centre" alt="media img">
 				Music Player
 			</a>
+        <?php 
+        if(isset($_SESSION['user_id'])){
+            echo '<form action="logout.php" method="POST"> 
+            <a href="albums.php" class="btn btn-link"><i class="fa fa-archive">&nbsp; My Albums</i></a>
+            <button name="logout" class="btn btn-mdb-color">Logout </button>
+            </form>' ;  
+        }
+        ?>
 </nav>
 <br/>
 
@@ -57,8 +65,9 @@
                 </div>
            
                 <div class="text-center py-4 mt-3">
-                    <a id="add_more" class="btn btn-cyan" type="submit">Add next</a>
-                    <button  class="btn btn-primary" type="submit" name="submit">Upload</button>     
+                    <a id="add_more" class="btn btn-indigo" type="submit"><i class="fa fa-plus">&nbsp; Add next</i></a>
+                    <button  class="btn btn-dark" type="submit" name="submit"><i class="fa fa-cloud-upload">&nbsp; Upload</i>
+                    </button>     
                 </div>
             </form>
         </div>

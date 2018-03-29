@@ -13,8 +13,6 @@ session_start() ;
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
-	<link rel="stylesheet" type="text/css" href="slick/slick.css"/>
-	<link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
 	<link rel="stylesheet" href="css/teststyle.css">
 
 </head>
@@ -38,7 +36,8 @@ session_start() ;
 		}else{
 			echo '
 			<form action="logout.php" method="POST"> 
-			<button name="logout" class="float-right btn btn-default btn-rounded mb-4">Logout</button>
+			<a href="uploadform.php" class="btn btn-grey"><i class="fa fa-cloud-upload" ></i></a>
+			<button name="logout" class="btn btn-elegant">Logout</button>
 			</form>' ;
 		}
 		?>			
@@ -65,20 +64,17 @@ session_start() ;
 
 
 	<div class='container'>
-
 		<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
 			<div class="mdl-tabs__tab-bar">
 				<a href="#starks-panel" class="mdl-tabs__tab is-active">Latest </a>
 				<a href="#lannisters-panel" class="mdl-tabs__tab">All Albums</a>
-
 			</div>
-
 			<div class="mdl-tabs__panel is-active" id="starks-panel">
 
 				<?php 
 	// fetch all the albums from the database 
 				include 'db/db.inc.php';
-				$sql = "SELECT * FROM albums ORDER BY year LIMIT 1" ;
+				$sql = "SELECT * FROM albums ORDER BY year DESC LIMIT 5" ;
 				$result = $conn->query($sql);
 				if($result->num_rows > 0){
 					echo "<table class='table'>
@@ -96,7 +92,7 @@ session_start() ;
 						<tr>
 						<td>".$count."</td>
 						<td>".$row['year']."</td>
-						<td>".$row['song_name']."</td>
+						<td><a href='play.php?name=".$row['file_loc']."'>".$row['song_name']."</a></td>
 						<td>".$row['artists']."</td>
 						</tr>
 						</tbody>";	
@@ -112,7 +108,7 @@ session_start() ;
 
 			<div class="mdl-tabs__panel" id="lannisters-panel">
 				<?php
-				$sql = "SELECT * FROM albums" ;
+				$sql = "SELECT * FROM albums ORDER BY year ASC LIMIT 5" ;
 				$result = $conn->query($sql);
 				if($result->num_rows > 0){
 					echo "<table class='table'>
@@ -130,7 +126,7 @@ session_start() ;
 						<tr>
 							<td>".$cp."</td>
 							<td>".$row['year']."</td>
-							<td>".$row['song_name']."</td>
+							<td><a href='play.php?name=".$row['file_loc']."'>".$row['song_name']."</a></td>
 							<td>".$row['artists']."</td>
 						</tr>
 						</tbody>";	

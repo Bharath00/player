@@ -60,7 +60,7 @@
 
 				    <div class="text-center py-4 mt-3">
 				        <button class="btn btn-primary" type="submit" name="submit">Login</button>
-				        <button class="btn stylish-color" type="value">forgot password</button>
+				        <a  href='forgotform.php' class="btn stylish-color" type="value">forgot password</a>
 				    </div>
        		</form>
        </div>

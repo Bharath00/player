@@ -46,6 +46,8 @@ if(isset($_POST['submit'])){
 					exit();
 				}	
 			 }
+			 header("Location: albums.php");
+			 exit();
 		}
 	}
 }else{

@@ -1,14 +1,8 @@
 <?php
-
 session_start() ;
-
 include "db/db.inc.php" ;
-
-if(!isset($_SESSION['user_id'])){
-	header('Location: index.php?filenotfound') ;
-	exit() ;
-}
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,34 +18,52 @@ if(!isset($_SESSION['user_id'])){
 			<img src="assets/logo.svg" width="32" height="32" class="d-inline-block align-centre" alt="media img">
 			Music Player
 		</a>
+		 <?php 
+        if(isset($_SESSION['user_id'])){
+            echo '<form action="logout.php" method="POST"> 
+            <button name="logout" class="btn btn-elegant">Logout </button>
+            </form>' ;  
+        	}
+        ?>
 </nav>
 <br/>
-
+<br/>
 	<?php
 	$abc =  $_GET['name']; 
 	echo "<div class='container'>";
 	echo "<table class='table'>
 			<thead class='blue-grey lighten-4'>
 				<th>No.</th>
-    		 	
     		 	<th>Song</th>
-			</thead>
-	</table>";
-
+    		 	<th>Play</th>
+			</thead>";
 
 	foreach(glob('uploaded/'.$abc.'*.mp3', GLOB_NOSORT) as $file)   
     {  
-    	Static $count=1;
-		echo "
-    		<table class='table'>
+
+  		$file1 = str_replace("uploaded/".$abc, "", $file);
+		Static $count=1;
+		echo "<tbody>
     		 	<tr>
     		 		<td>".$count."</td>	
+    		 		<td>".$file1."</td>
     		 		<td><audio controls><source src='".$file."' type='audio/mpeg'></audio></td>
-    		 	</tr>	 
-    		</table>";
+    		 	</tr>
+    		</tbody>";
         $count++ ;
     }  
+    echo "</table>";
 
 ?>
+
+<!-- Extra buttons -->
+
+<div class='container'>
+	<form method='POST' action='<?php $_SERVER["PHP_SELF"]?>'>
+		<a class='heart-ic' href='#'><i class="fa fa-heart fa-lg pink-text mr-md-5 mr-3 "> Like </i></a>
+		<a class='share-ic' href='#'><i class="fa fa-share fa-lg black-text mr-md-5 mr-3 "> Share </i></a>
+	</form>
+</div>
+<!-- End -->
 </body>
 </html>
