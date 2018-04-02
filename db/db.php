@@ -20,7 +20,7 @@ $conn->query($sql) ;
 
 $sql = "CREATE TABLE user_details(
 		
-		id  INT(10) PRIMARY KEY AUTO_INCREMENT,
+		id  INT(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
 		uname VARCHAR(30) NOT NULL UNIQUE,
 		email VARCHAR(50) UNIQUE NOT NULL,
 		password VARCHAR(50) NOT NULL,
@@ -31,14 +31,23 @@ $conn->query($sql);
 
 $sql = "CREATE TABLE albums(
 		
-		al_id INT(10) PRIMARY KEY UNIQUE,
+		al_id INT(10) NOT NULL PRIMARY KEY UNIQUE,
 		user_id INT(10) NOT NULL ,
-		song_name VARCHAR(50) NOT NULL UNIQUE,
-		artists VARCHAR(50) NOT NULL UNIQUE,
+		album_name VARCHAR(50) NOT NULL UNIQUE,
+		artists VARCHAR(50) NOT NULL ,
 		year DATE NOT NULL,
 		file_loc VARCHAR(200) NOT NULL,
 		FOREIGN KEY (user_id) REFERENCES user_details (id) 
 		)";
+
+$conn->query($sql);
+
+
+$sql = "CREATE TABLE admin(
+		id INT(10) PRIMARY KEY UNIQUE AUTO_INCREMENT,
+		email VARCHAR(200) NOT NULL UNIQUE,
+		password VARCHAR(200) NOT NULL 
+)";
 
 $conn->query($sql);
 

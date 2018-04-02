@@ -92,7 +92,7 @@ session_start() ;
 						<tr>
 						<td>".$count."</td>
 						<td>".$row['year']."</td>
-						<td><a href='play.php?name=".$row['file_loc']."'>".$row['song_name']."</a></td>
+						<td><a href='play.php?name=".$row['file_loc']."'>".$row['album_name']."</a></td>
 						<td>".$row['artists']."</td>
 						</tr>
 						</tbody>";	
@@ -126,7 +126,7 @@ session_start() ;
 						<tr>
 							<td>".$cp."</td>
 							<td>".$row['year']."</td>
-							<td><a href='play.php?name=".$row['file_loc']."'>".$row['song_name']."</a></td>
+							<td><a href='play.php?name=".$row['file_loc']."'>".$row['album_name']."</a></td>
 							<td>".$row['artists']."</td>
 						</tr>
 						</tbody>";	
