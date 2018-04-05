@@ -1,8 +1,7 @@
-<?php
+ <?php
 session_start() ;
 include "db/db.inc.php" ;
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,6 +28,7 @@ include "db/db.inc.php" ;
 <br/>
 <br/>
 	<?php
+	if(isset($_GET['name'])){
 	$abc =  $_GET['name']; 
 	echo "<div class='container'>";
 	echo "<table class='table'>
@@ -53,13 +53,24 @@ include "db/db.inc.php" ;
         $count++ ;
     }  
     echo "</table>";
-
+}else{
+	header("Location: index.php");
+	exit();
+}
 ?>
 
-<!-- Extra buttons -->
+
+<div class="card">
+	<div class="card-body">
+		
+		<form method="POST" action="action.php"> 
+			<input type="submit" name="report" class="btn btn-primary" value="Report" />
+			<input type="hidden" name="location" value="<?php echo $abc ;?>" />
+		</form>
+
+	</div>	
+</div>
 
 
-
-<!-- End -->
 </body>
 </html>

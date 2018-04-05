@@ -52,7 +52,7 @@ $row_cnt = $result ->num_rows;
     		 		<td>".$count." </td>	
     		 		<td>".$row['al_id']."</td>
     		 		<td><a href='adminlist.php?name=".$row['file_loc']."'>".$row['album_name']."</a></td>
-    		 		<td> </td>
+    		 		<td>". $row['reports'] ."</td>
     		 		<td><a href='delete.php?delid=".$row['al_id']."'>".$row['al_id']."</a></td>
     		 	</tr>
     		</tbody>";

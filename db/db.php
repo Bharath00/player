@@ -37,11 +37,21 @@ $sql = "CREATE TABLE albums(
 		artists VARCHAR(50) NOT NULL ,
 		year DATE NOT NULL,
 		file_loc VARCHAR(200) NOT NULL,
+		reports INT (11),
 		FOREIGN KEY (user_id) REFERENCES user_details (id) 
 		)";
 
 $conn->query($sql);
 
+
+$sql = "CREATE TABLE action(
+
+	id INT(11)	NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	user_id INT(11) NOT NULL ,
+	album_id INT(11) NOT NULL 
+	)";
+
+$conn->query($sql);
 
 $sql = "CREATE TABLE admin(
 		id INT(10) PRIMARY KEY UNIQUE AUTO_INCREMENT,

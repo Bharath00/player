@@ -76,7 +76,7 @@ session_start() ;
 				include 'db/db.inc.php';
 				$sql = "SELECT * FROM albums ORDER BY year DESC LIMIT 5" ;
 				$result = $conn->query($sql);
-				if($result->num_rows > 0){
+				 if($result->num_rows > 0){
 					echo "<table class='table'>
 					<thead>
 					<tr>	
@@ -103,7 +103,7 @@ session_start() ;
 					echo "No Albums found";
 				}
 
-				?>
+			?>
 			</div>
 
 			<div class="mdl-tabs__panel" id="lannisters-panel">
