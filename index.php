@@ -152,7 +152,7 @@ session_start() ;
         <h4 class="card-title text-center">About</h4>
         <hr class="hr-light">
         <!--Text-->
-        <p class="font-medium mb-4">Stream free albums and hits, find a song, discover music, and download songs with the Spotify free streaming and music player app. Free streaming, music search and hits library – Spotify is all that and much more. Play songs, sync music, discover music and free albums with Spotify, your go-to music downloader.</p>
+        <p class="font-medium mb-4">Stream free albums and hits, find a song, discover music with the online music player. Free streaming, music search and hits library Play songs, discover music and free albums with your go-to music website.</p>
     </div>
 </div>
 </div>

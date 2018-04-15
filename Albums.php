@@ -56,6 +56,7 @@ if(!isset($_SESSION['user_id'])){
 						<th>Album</th>
 						<th>Artists</th>
 						<th>Release Date</th>
+						<th>Action</th>
 					</tr>
 					</thead>";
 				
@@ -69,6 +70,7 @@ if(!isset($_SESSION['user_id'])){
 								<td><a href='play.php?name=".$row['file_loc']."'>".$row['album_name']."</a></td>
 								<td>".$row['artists']."</td>
 								<td>".$row['year']."</td>
+								<td><a class='btn btn-primary' href='deleteAlbum.php?al_id=".$row['file_loc']."'>Delete</a></td>
 							</tr>
 						</tbody>";
 				$count++ ; 	

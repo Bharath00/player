@@ -48,7 +48,10 @@ $sql = "CREATE TABLE action(
 
 	id INT(11)	NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	user_id INT(11) NOT NULL ,
-	album_id INT(11) NOT NULL 
+	album_id INT(11) NOT NULL , 
+	FOREIGN KEY (user_id) REFERENCES user_details (id) ,
+	FOREIGN KEY (album_id) REFERENCES albums (al_id)
+
 	)";
 
 $conn->query($sql);
