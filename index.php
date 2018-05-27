@@ -72,7 +72,7 @@ session_start() ;
 			<div class="mdl-tabs__panel is-active" id="starks-panel">
 
 				<?php 
-	// fetch all the albums from the database 
+				// fetch all the albums from the database 
 				include 'db/db.inc.php';
 				$sql = "SELECT * FROM albums ORDER BY year DESC LIMIT 5" ;
 				$result = $conn->query($sql);

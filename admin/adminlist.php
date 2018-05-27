@@ -1,7 +1,7 @@
 <?php 
 session_start();
 if(!isset($_SESSION['admin_id'])){
-	header("Location: index.php?error");
+	header("Location: ../index.php?error");
 	exit();
 }
 ?>
@@ -26,6 +26,13 @@ if(!isset($_SESSION['admin_id'])){
 			<img src="../assets/logo.svg" width="32" height="32" class="d-inline-block align-centre" alt="media img">
 			Music Player
 		</a>
+		<?php
+		if(isset($_SESSION['admin_id'])){
+			echo '<form action="adminlogout.php" method="POST"> 
+            <button name="logout" class="btn btn-elegant">Logout </button>
+            </form>';
+		}
+	?>
 	</nav><br/>
 
 

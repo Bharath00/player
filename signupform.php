@@ -36,21 +36,21 @@
 					<!-- Material input text -->
 					<div class="md-form">
 						<i class="fa fa-user prefix grey-text"></i>
-						<input type="text" id="materialFormCardNameEx" class="form-control" name="uname">
+						<input type="text" id="materialFormCardNameEx" class="form-control" name="uname" required>
 						<label for="materialFormCardNameEx" class="font-weight-light">Username</label>
 					</div><br/>
 
 					<!-- Material input email -->
 					<div class="md-form">
 						<i class="fa fa-envelope prefix grey-text"></i>
-						<input type="email" id="materialFormCardEmailEx" class="form-control" name="email">
+						<input type="email" id="materialFormCardEmailEx" class="form-control" name="email" required>
 						<label for="materialFormCardEmailEx" class="font-weight-light">Email</label>
 					</div><br/>
 
 					<!-- Material input password -->
 					<div class="md-form">
 						<i class="fa fa-lock prefix grey-text"></i>
-						<input type="password" id="materialFormCardPasswordEx" class="form-control" name="pass">
+						<input type="password" id="materialFormCardPasswordEx" class="form-control" name="pass" required>
 						<label for="materialFormCardPasswordEx" class="font-weight-light">Password</label>
 					</div><br/>
 
@@ -68,7 +68,7 @@
 
 					<div class="md-form">
 						<i class="fa fa-lock prefix grey-text"></i>
-						<input type="password" id="materialFormCardPasswordEx" class="form-control" name="code">
+						<input type="password" id="materialFormCardPasswordEx" class="form-control" name="code" required>
 						<label for="materialFormCardPasswordEx" class="font-weight-light">Security code!</label>
 					</div><br/>	<br/>
 

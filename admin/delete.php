@@ -1,9 +1,9 @@
 <?php 
-session_start();
+
 
 session_start();
 if(!isset($_SESSION['admin_id'])){
-	header("Location: index.php?error");
+	header("Location: ../index.php?error");
 	exit();
 }
 

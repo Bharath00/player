@@ -12,6 +12,16 @@ include "db/db.inc.php" ;
 	<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
 </head>
 <body>
+
+	<style type="text/css">
+		img album_art{
+
+		
+		}
+	
+	</style>
+
+
 		<nav class="navbar  navbar-light" style="background-color : #50a8a1;">
 		<a class="navbar-brand" href="index.php">
 			<img src="assets/logo.svg" width="32" height="32" class="d-inline-block align-centre" alt="media img">
@@ -27,9 +37,20 @@ include "db/db.inc.php" ;
 </nav>
 <br/>
 <br/>
+<div class="container">
 	<?php
+	
 	if(isset($_GET['name'])){
 	$abc =  $_GET['name']; 
+
+
+	foreach(glob('uploaded/'.$abc.'*.jpg', GLOB_NOSORT) as $img){  
+		echo "<div class='text-center'>
+				<img  src='".$img."' width='320em' height='200em'  id='album_art'/>
+			</div><br/>";
+			break;
+    }
+
 	echo "<div class='container'>";
 	echo "<table class='table'>
 			<thead class='blue-grey lighten-4'>
@@ -53,7 +74,10 @@ include "db/db.inc.php" ;
         $count++ ;
     }  
     echo "</table>";
-}else{
+ 
+}
+
+else{
 	header("Location: index.php");
 	exit();
 }

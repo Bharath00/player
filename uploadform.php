@@ -46,21 +46,32 @@
             <form method="POST" action="uploadLogic.php" enctype="multipart/form-data">
                 <p class="h4 text-center py-4">Upload your content here ..</p>
                 <div class="md-form">
-                    <input type="text" id="materialFormCardNameEx" class="form-control" name="alname">
+                    <input type="text" id="materialFormCardNameEx" class="form-control" name="alname" required>
                     <label for="materialFormCardNameEx" class="font-weight-light">Album name</label>
                 </div><br/>
 
             <!-- Material input email -->
                 <div class="md-form">
-                    <input type="text" id="materialFormCardEmailEx" class="form-control" name="artname">
+                    <input type="text" id="materialFormCardEmailEx" class="form-control" name="artname" required>
                     <label for="materialFormCardEmailEx" class="font-weight-light">Artists name..</label>
                 </div><br/>
+
+                <!-- Album thumbnail -->
+                 <div class="alert alert-info" role="alert">
+                    <strong>Upload Cover / Thumbnail</strong> Only jpeg format supported
+                </div>
+
+                <div class="md-form">
+                	<input type="file" accept="image/*" name="cover_art" required>
+                </div><br/>
+
+                <!-- File upload -->
 
                 <div class="alert alert-info" role="alert">
                     <strong>Maximum limit !</strong> Only a maximum of 5 tracks can be uploaded.
                 </div>
 
-                <div class="md-form" id="file_id">
+                <div class="md-form" id="file_id" accept="audio/*">
                     <input type="file" name="file_0">
                 </div>
            
